@@ -1,0 +1,175 @@
+{
+  "projects": [
+    {
+      "name": "Project Elevate – Newark Resident Service Platform",
+      "url": "https://newark-resident-app.vercel.app/",
+      "slug": "project-elevate-newark-dpw",
+      "image": "/src/assets/dpw.png",
+      "award": "2nd Place – Best Service Application Platform",
+      "summary": "A web application that modernizes how Newark’s Department of Public Works (DPW) collaborates with residents, combines AI-driven communication, smart incident reporting, and real-time crew workflows to keep the city cleaner while cutting costs.",
+      "description": [
+        "AI-powered chat window for direct resident-to-DPW communication.",
+        "GPS-tagged photo reporting for litter, potholes, and illegal dumping.",
+        "Real-time crew routing, status updates, and proof-of-completion images.",
+        "Dynamic calendar reminders for trash, recycling, and bulk-pickup days.",
+        "Analytics dashboard that reduces fuel costs and manpower through optimized routing."
+      ],
+      "technologies": [],
+      "pillars": [
+        {
+          "title": "Two-way communication",
+          "capabilities": [
+            "AI chat window for questions, complaints, or bulk-pickup requests",
+            "Instant routing of messages to the correct DPW or Code-Enforcement team"
+          ]
+        },
+        {
+          "title": "Smart incident reporting",
+          "capabilities": [
+            "Photo upload with automatic GPS extraction and classification",
+            "Live city map for crews to triage litter, potholes, or illegal dumping"
+          ]
+        },
+        {
+          "title": "Real-time service tracking",
+          "capabilities": [
+            "Mobile login for sanitation crews",
+            "Optimized route maps, status updates, and “after” photos visible to the public"
+          ]
+        },
+        {
+          "title": "Citywide scheduling hub",
+          "capabilities": [
+            "Dynamic calendars for trash, recycling, and bulk-item days",
+            "Neighborhood-specific reminders to reduce missed pickups"
+          ]
+        },
+        {
+          "title": "Operational efficiency",
+          "capabilities": [
+            "Automated routing and clustering to save fuel and manpower",
+            "Dashboards revealing hotspots and crew performance"
+          ]
+        }
+      ],
+      "impact": "Shorter response times, cleaner streets, and measurable taxpayer savings; highlighted by Microsoft and cybersecurity partners as a scalable model for other municipalities."
+    },
+    {
+      "name": "Youth Ballot – Next-Generation Civic Engagement & Secure Voting",
+      "url": "https://youth-ballot.web.app/",
+      "slug": "project-elevate-youth-ballot",
+      "image": "/src/assets/youthballot.jpg",
+      "summary": "A mobile-first platform that teaches civic literacy and delivers secure, paper-free elections for students—now expanding to council and assembly races when users turn 18.",
+      "description": [
+        "Age-aware onboarding automatically unlocks council and assembly ballots at 18.",
+        "Interactive learning hub with quizzes and bite-sized civic lessons.",
+        "AI-moderated chat lets students question candidates on policies and manifestos.",
+        "End-to-end-encrypted, WCAG-compliant e-ballots with tamper-proof audit logs.",
+        "Live turnout analytics and heat maps for educators and administrators."
+      ],
+      "technologies": ["JavaScript", "TypeScript", "Vue", "CSS", "Swift", "Ruby"],
+      "pillars": [
+        {
+          "title": "Seamless age-based voter eligibility",
+          "capabilities": [
+            "Automatic ballot upgrade to council/assembly races on a student’s 18ᵗʰ birthday",
+            "School-verified log-in with no extra paperwork"
+          ]
+        },
+        {
+          "title": "Interactive civic-learning hub",
+          "capabilities": [
+            "Bite-sized explainers, quizzes, and case studies on democracy and governance",
+            "Gamified progress tracking to reinforce lessons"
+          ]
+        },
+        {
+          "title": "Candidate chat",
+          "capabilities": [
+            "AI-moderated messaging with candidates about policies and manifestos",
+            "Direct engagement that bridges the gap between young voters and public servants"
+          ]
+        },
+        {
+          "title": "Secure, WCAG-compliant e-ballot",
+          "capabilities": [
+            "End-to-end encryption and auditable logs",
+            "Multilingual, screen-reader-friendly interface"
+          ]
+        },
+        {
+          "title": "Live analytics & turnout tools",
+          "capabilities": [
+            "Real-time dashboards for engagement by grade and precinct",
+            "Automated, non-spammy reminders to boost turnout"
+          ]
+        }
+      ],
+      "impact": "Transforms classroom elections into hands-on democracy, cultivating informed lifelong voters while reducing administrative overhead for schools."
+    },
+    {
+      "name": "School of Thought – AI Chatbot for Learning",
+      "url": "https://schoolofthought.us/",
+      "slug": "school-of-thought-ai-chatbot",
+      "image": "/src/assets/school-of-thought.jpg",
+      "summary": "A conversational AI platform that delivers personalized study assistance to students and curriculum-planning tools to teachers, reimagining classroom engagement.",
+      "description": [
+        "Context-aware chatbot answers homework questions and explains concepts with citations.",
+        "Adaptive learning engine tailors practice problems to each student’s skill gaps.",
+        "Teacher dashboard auto-generates lesson plans and formative assessments.",
+        "Integrates with Google Classroom and Learning Management Systems (LMS).",
+        "Usage analytics help educators identify struggling students early."
+      ],
+      "technologies": ["React", "TypeScript", "OpenAI API", "NestJS", "PostgreSQL", "Tailwind CSS"],
+      "pillars": [
+        {
+          "title": "Personalized tutoring",
+          "capabilities": [
+            "Conversational AI adapts explanations to a student’s learning style",
+            "Progressive hints guide rather than give away answers"
+          ]
+        },
+        {
+          "title": "Teacher productivity",
+          "capabilities": [
+            "One-click lesson-plan generation aligned to standards",
+            "Auto-graded quizzes with item-analysis reports"
+          ]
+        }
+      ],
+      "impact": "Improves student outcomes through individualized support while freeing educators from repetitive administrative tasks."
+    },
+    {
+      "name": "DPW AI Camera System",
+      "url": "",
+      "slug": "dpw-ai-camera-system",
+      "image": "/src/assets/dpw-camera-system.jpg",
+      "summary": "An edge-based computer-vision network that detects and deters illegal dumping across Newark in real time, enabling rapid DPW response and cleaner streets.",
+      "description": [
+        "AI-powered cameras automatically identify illegal dumping events 24/7.",
+        "Instant alerts sent to Newark DPW dashboards and mobile devices.",
+        "Location-based heat maps reveal dumping hotspots for proactive enforcement.",
+        "Edge processing reduces bandwidth costs while maintaining low-latency detection.",
+        "Data analytics track incident reductions and ROI on equipment deployment."
+      ],
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Edge TPU", "NestJS", "PostgreSQL"],
+      "pillars": [
+        {
+          "title": "Real-time detection",
+          "capabilities": [
+            "Computer-vision models distinguish dumping from normal activity",
+            "<1-second alert latency from camera to DPW operator"
+          ]
+        },
+        {
+          "title": "Smart city integration",
+          "capabilities": [
+            "Dashboard overlays illegal-dumping incidents on Newark GIS layers",
+            "API hooks feed enforcement tickets and cleanup work orders"
+          ]
+        }
+      ],
+      "impact": "Creates a cleaner, safer city environment while saving cleanup costs and enabling data-driven policy decisions on waste management."
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "name": "project-elevate",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently -k -n WEB,API -c magenta,cyan \"npm:dev --workspace project-elevate\" \"npm:start:dev --workspace apps/api\""
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "react-router-dom": "^6.30.1"
+  }
+}
