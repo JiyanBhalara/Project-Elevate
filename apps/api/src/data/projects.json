@@ -6,6 +6,7 @@
       "slug": "project-elevate-newark-dpw",
       "image": "/src/assets/dpw.png",
       "award": "2nd Place – Best Service Application Platform",
+      "category":["Municipality"],
       "summary": "A web application that modernizes how Newark’s Department of Public Works (DPW) collaborates with residents, combines AI-driven communication, smart incident reporting, and real-time crew workflows to keep the city cleaner while cutting costs.",
       "description": [
         "AI-powered chat window for direct resident-to-DPW communication.",
@@ -14,7 +15,7 @@
         "Dynamic calendar reminders for trash, recycling, and bulk-pickup days.",
         "Analytics dashboard that reduces fuel costs and manpower through optimized routing."
       ],
-      "technologies": [],
+      "technologies": ["React", "React-Native", "Python", "Django", "TypeScript", "Node.Js", "MySQL", "PostgreSQL","Tailwind CSS"],
       "pillars": [
         {
           "title": "Two-way communication",
@@ -58,7 +59,8 @@
       "name": "Youth Ballot – Next-Generation Civic Engagement & Secure Voting",
       "url": "https://youth-ballot.web.app/",
       "slug": "project-elevate-youth-ballot",
-      "image": "/src/assets/youthballot.jpg",
+      "image": "/src/assets/youthballot.png",
+      "category":["Municipality", "Education"],
       "summary": "A mobile-first platform that teaches civic literacy and delivers secure, paper-free elections for students—now expanding to council and assembly races when users turn 18.",
       "description": [
         "Age-aware onboarding automatically unlocks council and assembly ballots at 18.",
@@ -67,7 +69,7 @@
         "End-to-end-encrypted, WCAG-compliant e-ballots with tamper-proof audit logs.",
         "Live turnout analytics and heat maps for educators and administrators."
       ],
-      "technologies": ["JavaScript", "TypeScript", "Vue", "CSS", "Swift", "Ruby"],
+      "technologies": ["JavaScript", "TypeScript", "Vue", "CSS", "Swift", "Ruby", "Firebase", "Cloud Functions"],
       "pillars": [
         {
           "title": "Seamless age-based voter eligibility",
@@ -108,10 +110,11 @@
       "impact": "Transforms classroom elections into hands-on democracy, cultivating informed lifelong voters while reducing administrative overhead for schools."
     },
     {
-      "name": "School of Thought – AI Chatbot for Learning",
-      "url": "https://schoolofthought.us/",
+      "name": "School of Thought – AI Tools for Learning",
+      "url": "https://web.schoolofthought.us/",
       "slug": "school-of-thought-ai-chatbot",
-      "image": "/src/assets/school-of-thought.jpg",
+      "image": "/src/assets/schoolofthought.png",
+      "category":["Education"],
       "summary": "A conversational AI platform that delivers personalized study assistance to students and curriculum-planning tools to teachers, reimagining classroom engagement.",
       "description": [
         "Context-aware chatbot answers homework questions and explains concepts with citations.",
@@ -140,11 +143,12 @@
       "impact": "Improves student outcomes through individualized support while freeing educators from repetitive administrative tasks."
     },
     {
-      "name": "DPW AI Camera System",
+      "name": "AI Camera System",
       "url": "",
-      "slug": "dpw-ai-camera-system",
+      "slug": "ai-camera-system",
       "image": "/src/assets/dpw-camera-system.jpg",
-      "summary": "An edge-based computer-vision network that detects and deters illegal dumping across Newark in real time, enabling rapid DPW response and cleaner streets.",
+      "category":["Municipality"],
+      "summary": "An edge-based computer-vision network that detects and deters illegal dumping across cities in real time, enabling rapid government response and cleaner streets.",
       "description": [
         "AI-powered cameras automatically identify illegal dumping events 24/7.",
         "Instant alerts sent to Newark DPW dashboards and mobile devices.",
@@ -152,7 +156,7 @@
         "Edge processing reduces bandwidth costs while maintaining low-latency detection.",
         "Data analytics track incident reductions and ROI on equipment deployment."
       ],
-      "technologies": ["Python", "TensorFlow", "OpenCV", "Edge TPU", "NestJS", "PostgreSQL"],
+      "technologies": ["Python", "TensorFlow", "Neural Networks", "Deep Stream"],
       "pillars": [
         {
           "title": "Real-time detection",

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import { ConfigService } from '@nestjs/config';
 import { ContactDto } from './dto/contact.dto';
+import { config } from 'process';
 
 @Injectable()
 export class MailService {
@@ -24,7 +25,7 @@ export class MailService {
 
     await this.transporter.sendMail({
       from: `"${name}" <${email}>`,
-      to: 'jiyanbhalara0505@gmail.com',
+      to: this.cfg.get<string>('SMTP_USER'),
       subject: `[Portfolio] ${subject}`,
       html: `
         <p><strong>Name:</strong> ${name}</p>

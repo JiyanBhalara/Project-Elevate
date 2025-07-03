@@ -15,7 +15,7 @@ interface Project {
   technologies?: string[];
   timeline?: string;
   client?: string;
-  category?: string;
+  category: string[];
 }
 
 export default function ProjectDetail() {
@@ -54,7 +54,7 @@ export default function ProjectDetail() {
           <h1 className="text-2xl font-bold text-[#00017A] mb-2">Project Not Found</h1>
           <p className="text-[#1237A1] mb-6">The project you're looking for doesn't exist.</p>
           <Link
-            to = "/portfolio" 
+            to = "/services" 
             className="inline-flex items-center gap-2 bg-[#1873D3] hover:bg-[#1237A1] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ export default function ProjectDetail() {
           {/* Breadcrumb Navigation */}
           <div className="mb-8 animate-fade-in">
             <Link
-             to="/portfolio"
+             to="/services"
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors group"
             >
               <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +139,7 @@ export default function ProjectDetail() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-[#FFDE00] hover:bg-[#FFB900] text-[#00017A] px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  <span>Visit Live Site</span>
+                  <span>Visit Service</span>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>

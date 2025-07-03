@@ -87,15 +87,7 @@ const Footer: React.FC<FooterProps> = ({ onLinkedInClick }) => {
                   Services
                 </Link>
               </li>
-              <li>
-                <Link
-                  to = "/portfolio" 
-                  onClick={() => handleNavigation('/portfolio')}
-                  className="text-gray-300 hover:text-[#FFDE00] transition-colors text-left w-full"
-                >
-                  Portfolio
-                </Link>
-              </li>
+              
               <li>
                 <Link
                   to = "/about" 

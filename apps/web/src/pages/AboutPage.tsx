@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import TeamSection from '../components/TeamSection';
 
 const AboutPage: React.FC = () => {
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
@@ -14,7 +15,7 @@ const AboutPage: React.FC = () => {
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.1 }
     );
 
     const sections = document.querySelectorAll('[data-section]');
@@ -23,352 +24,582 @@ const AboutPage: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+  const isVisible = (sectionId: string) => visibleSections.includes(sectionId);
+
   return (
-    <div className="relative min-h-screen bg-white overflow-x-hidden">
-      {/* Animated Background Elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-[#1873D3]/3 to-transparent rounded-full animate-pulse" style={{ animationDuration: '4s' }}></div>
-        <div className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-[#FFDE00]/3 to-transparent rounded-full animate-pulse" style={{ animationDuration: '6s' }}></div>
-      </div>
-
-      <div className="relative z-10">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-[#1873D3] via-[#1237A1] to-[#00017A] text-white py-20 sm:py-24 lg:py-32 overflow-hidden">
-          {/* Hero Background Animation */}
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FFDE00]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }}></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FFB900]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center" data-section="hero">
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-white/20 animate-fade-in">
-                <div className="relative">
-                  <span className="text-2xl animate-bounce">👥</span>
-                  <div className="absolute inset-0 bg-[#FFDE00]/20 rounded-full blur animate-ping"></div>
-                </div>
-                <span className="text-sm font-semibold tracking-wide">ABOUT US</span>
-              </div>
-              
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight tracking-tight mb-8 animate-slide-up">
-                About{' '}
-                <span className="block relative">
-                  <span className="bg-gradient-to-r from-[#FFDE00] via-[#FFB900] to-[#FFDE00] text-transparent bg-clip-text animate-gradient bg-300% animate-gradient-shift">
-                    Project Elevate
-                  </span>
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#FFDE00] to-[#FFB900] rounded-full transform scale-x-0 animate-scale-x"></div>
+    <div className="relative min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="relative text-white py-20 lg:py-32 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')`
+          }}
+        >
+          {/* Multiple overlay layers for better text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3]/95 via-[#1237A1]/90 to-[#00017A]/95"></div>
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="max-w-4xl" data-section="hero">
+            <div
+              className={`transition-all duration-1000 ${isVisible("hero") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            >
+              <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm rounded-full px-6 py-3 mb-8 border border-white/30">
+                <svg
+                  className="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                <span className="text-sm font-semibold tracking-wide">
+                  ABOUT PROJECT ELEVATE
                 </span>
+              </div>
+
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-shadow-lg">
+                Transforming Cities Through
+                <span className="block text-[#FFDE00]">Human-Centered AI</span>
               </h1>
-              
-              <p className="text-xl sm:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-                A leading technology company dedicated to providing innovative solutions to businesses of all sizes. Founded in 2020, we have a proven track record of delivering excellence.
+
+              <p className="text-xl text-white/95 leading-relaxed mb-8 drop-shadow-sm">
+                We help cities, schools, and public-serving organizations solve
+                stubborn social problems with practical, human-centered AI
+                solutions.
               </p>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Stats Section */}
-        <section className="py-16 bg-white border-b border-gray-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { number: '4+', label: 'Years of Excellence' },
-                { number: '100+', label: 'Projects Delivered' },
-                { number: '50+', label: 'Happy Clients' },
-                { number: '24/7', label: 'Support Available' }
-              ].map((stat, index) => (
-                <div key={index} className="text-center group animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s` }}>
-                  <div className="text-3xl lg:text-4xl font-black text-[#00017A] mb-2 group-hover:text-[#1873D3] transition-colors">
-                    {stat.number}
-                  </div>
-                  <div className="text-[#1237A1] font-medium">{stat.label}</div>
-                </div>
-              ))}
+      {/* Mission Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`text-center transition-all duration-1000 ${isVisible("mission") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            data-section="mission"
+          >
+            <div className="inline-flex items-center gap-2 text-[#1873D3] font-semibold text-sm tracking-wide mb-6">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              OUR MISSION
             </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#00017A] mb-8 max-w-4xl mx-auto">
+              To help cities, schools, and public-serving organizations solve
+              stubborn social problems with practical, human-centered AI
+            </h2>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Mission Section */}
-        <section className="py-20 bg-gradient-to-b from-white to-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className={`relative bg-white rounded-3xl shadow-xl overflow-hidden transform transition-all duration-700 ${
-              visibleSections.includes('mission') ? 'animate-slide-in-up' : 'opacity-0'
-            }`} data-section="mission">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3]/5 to-[#FFDE00]/5"></div>
-              <div className="relative p-8 lg:p-16">
-                <div className="text-center mb-8">
-                  <div className="inline-block p-1 bg-gradient-to-r from-[#1873D3] to-[#FFDE00] rounded-full mb-6">
-                    <div className="bg-white px-6 py-2 rounded-full">
-                      <span className="text-[#1237A1] font-semibold text-sm tracking-wide">OUR MISSION</span>
-                    </div>
+      {/* Current Challenges Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`transition-all duration-1000 ${isVisible("challenges") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            data-section="challenges"
+          >
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-[#1873D3] font-semibold text-sm tracking-wide mb-6">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
+                TODAY'S CHALLENGES
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#00017A] mb-6">
+                The Problems We're Solving
+              </h2>
+            </div>
+
+            <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
+              <p className="text-lg text-gray-700 leading-relaxed mb-8">
+                Picture a modern city: overflowing dumpsters behind corner
+                stores, students who've never cast a real ballot, and classrooms
+                stretched too thin to give personalized attention. While private
+                apps refine one-click shopping, core civic systems stay stuck in
+                the past—fragmented data, paper workflows, and aging CCTV that
+                no one watches.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="text-center p-6 bg-red-50 rounded-xl">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-red-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm0-4H5V7h10v2z" />
+                    </svg>
                   </div>
-                  <h2 className="text-4xl sm:text-5xl font-black text-[#00017A] mb-6">
-                    Our Mission
-                  </h2>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Dirty Streets
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Illegal dumping and poor street hygiene sap community pride
+                  </p>
                 </div>
-                <div className="max-w-4xl mx-auto text-center">
-                  <p className="text-xl text-[#1237A1] leading-relaxed">
-                    To be the catalyst for digital transformation, empowering businesses with innovative technology solutions that drive growth, efficiency, and success in the ever-evolving digital landscape.
+
+                <div className="text-center p-6 bg-orange-50 rounded-xl">
+                  <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-orange-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Disengaged Youth
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Young people avoid the polls due to lack of civic engagement
+                  </p>
+                </div>
+
+                <div className="text-center p-6 bg-blue-50 rounded-xl">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg
+                      className="w-6 h-6 text-blue-600"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    Unequal Education
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Overworked teachers can't meet every learner where they are
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16" data-section="values">
-              <div className="inline-block p-1 bg-gradient-to-r from-[#1873D3] to-[#FFDE00] rounded-full mb-6">
-                <div className="bg-white px-6 py-2 rounded-full">
-                  <span className="text-[#1237A1] font-semibold text-sm tracking-wide">OUR VALUES</span>
-                </div>
+      {/* Core Expertise Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`transition-all duration-1000 ${isVisible("expertise") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            data-section="expertise"
+          >
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-[#1873D3] font-semibold text-sm tracking-wide mb-6">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm0-4H5V7h10v2z" />
+                </svg>
+                OUR CORE EXPERTISE
               </div>
-              <h2 className="text-4xl sm:text-5xl font-black text-[#00017A] mb-6">
-                What Drives Us
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#00017A] mb-6">
+                What We Do
               </h2>
-              <p className="text-xl text-[#1237A1] max-w-3xl mx-auto">
-                Our core values guide every decision we make and every solution we deliver.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Client-Centric",
-                  description: "We prioritize our clients' needs and strive to exceed their expectations.",
+                  title: "Smart City Solutions",
+                  description:
+                    "Camera systems and mobile apps that help cities spot problems like illegal dumping and fix them faster than ever before.",
                   icon: (
-                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z" />
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
-                  )
+                  ),
                 },
                 {
-                  title: "Integrity",
-                  description: "We uphold the highest ethical standards in all our interactions.",
+                  title: "Youth Engagement Tools",
+                  description:
+                    "Fun, secure voting and education apps that help teenagers become informed, lifelong participants in democracy.",
                   icon: (
-                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M208,40H48A16,16,0,0,0,32,56v58.78c0,89.61,75.82,119.34,91,124.39a15.53,15.53,0,0,0,10,0c15.2-5.05,91-34.78,91-124.39V56A16,16,0,0,0,208,40Zm0,74.79c0,78.42-66.35,104.62-80,109.18-13.53-4.51-80-30.69-80-109.18V56H208ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.68l50.34-50.34a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z" />
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16.5c-.8 0-1.54.37-2.01 1.01L12 14v6h4v-6l1.5-2.5L19 14.5V22h1z" />
                     </svg>
-                  )
+                  ),
                 },
                 {
-                  title: "Innovation",
-                  description: "We embrace creativity and continuously seek new and improved solutions.",
+                  title: "Personalized Learning",
+                  description:
+                    "Smart learning apps that adapt to each student's pace and interests, making quality education accessible to everyone.",
                   icon: (
-                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M216,40H136V24a8,8,0,0,0-16,0V40H40A16,16,0,0,0,24,56V176a16,16,0,0,0,16,16H79.36L57.75,219a8,8,0,0,0,12.5,10l29.59-37h56.32l29.59,37a8,8,0,1,0,12.5-10l-21.61-27H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,136H40V56H216V176ZM104,120v24a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm32-16v40a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm32-16v56a8,8,0,0,1-16,0V88a8,8,0,0,1,16,0Z" />
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
                     </svg>
-                  )
+                  ),
                 },
                 {
-                  title: "Collaboration",
-                  description: "We foster a collaborative environment to achieve shared goals.",
+                  title: "Quick Government Innovation",
+                  description:
+                    "Fast development processes that help government agencies test new ideas quickly while meeting all the necessary requirements.",
                   icon: (
-                    <svg fill="currentColor" height="32px" viewBox="0 0 256 256" width="32px" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z" />
+                    <svg
+                      className="w-8 h-8"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
                     </svg>
-                  )
-                }
-              ].map((value, index) => (
-                <div 
-                  key={value.title}
-                  className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 ${
-                    visibleSections.includes('values') ? 'animate-slide-in-up' : 'opacity-0'
-                  }`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
+                  ),
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 rounded-xl p-8 hover:bg-gray-100 transition-colors"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3]/5 to-[#FFDE00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-[#1873D3] to-[#1237A1] rounded-xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                      {value.icon}
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-[#1873D3] rounded-xl flex items-center justify-center text-white flex-shrink-0">
+                      {item.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-[#00017A] mb-4 group-hover:text-[#1873D3] transition-colors">
-                      {value.title}
-                    </h3>
-                    <p className="text-[#1237A1] leading-relaxed">
-                      {value.description}
-                    </p>
+                    <div>
+                      <h3 className="text-xl font-bold text-[#00017A] mb-3">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Team Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16" data-section="team">
-              <div className="inline-block p-1 bg-gradient-to-r from-[#1873D3] to-[#FFDE00] rounded-full mb-6">
-                <div className="bg-white px-6 py-2 rounded-full">
-                  <span className="text-[#1237A1] font-semibold text-sm tracking-wide">OUR TEAM</span>
-                </div>
+      {/* Solutions Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`transition-all duration-1000 ${isVisible("solutions") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            data-section="solutions"
+          >
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-[#1873D3] font-semibold text-sm tracking-wide mb-6">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
+                HOW WE MAKE A DIFFERENCE
               </div>
-              <h2 className="text-4xl sm:text-5xl font-black text-[#00017A] mb-6">
-                Meet Our Team
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#00017A] mb-6">
+                Real Solutions for Real Problems
               </h2>
-              <p className="text-xl text-[#1237A1] max-w-3xl mx-auto">
-                The brilliant minds behind our innovative solutions and exceptional service.
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                We're making communities cleaner, students more engaged, and
+                learning more accessible with smart technology that actually
+                works.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-              {[
-                {
-                  name: "Fakhair Spence",
-                  role: "Co-Founder | CEO",
-                  image: "/src/assets/fakhair.jpeg"
-                },
-                {
-                  name: "Anthony Caruso",
-                  role: "Co-Founder | CTO",
-                  image: "/src/assets/anthony.jpeg"
-                },
-                {
-                  name: "Jiyan Bhalara",
-                  role: "Full Stack Developer",
-                  image: "/src/assets/jiyan.jpeg"
-                }
-              ].map((member, index) => (
-                <div 
-                  key={member.name}
-                  className={`group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 ${
-                    visibleSections.includes('team') ? 'animate-slide-in-up' : 'opacity-0'
-                  }`}
-                  style={{ animationDelay: `${index * 0.2}s` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3]/5 to-[#FFDE00]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
-                  <div className="relative text-center">
-                    <div className="relative mb-6">
-                      <div className="w-32 h-32 mx-auto relative">
-                        <img
-                          alt={member.name}
-                          className="w-full h-full object-cover rounded-full shadow-lg group-hover:scale-105 transition-transform duration-300"
-                          src={member.image}
-                        />
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[#1873D3]/20 to-[#FFDE00]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                    </div>
-                    <h3 className="text-xl font-bold text-[#00017A] mb-2 group-hover:text-[#1873D3] transition-colors">
-                      {member.name}
-                    </h3>
-                    <p className="text-[#1237A1] font-medium mb-4">
-                      {member.role}
-                    </p>
-                    <div className="w-16 h-1 bg-gradient-to-r from-[#FFDE00] to-[#FFB900] rounded-full mx-auto transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                  <svg
+                    className="w-8 h-8 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm0-4H5V7h10v2z" />
+                  </svg>
                 </div>
-              ))}
+                <h3 className="text-xl font-bold text-[#00017A] mb-4">
+                  Cleaner Streets
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Our Newark Residents App lets people report problems instantly
+                  while smart cameras spot illegal dumping automatically.
+                </p>
+                <p className="text-sm text-green-600 font-semibold">
+                  Result: City crews can clean up in hours instead of weeks
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                  <svg
+                    className="w-8 h-8 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M18 7l-1.41-1.41-6.34 6.34 1.41 1.41L18 7zm4.24-1.41L11.66 16.17 7.48 12l-1.41 1.41L11.66 19l12-12-1.42-1.41zM.41 13.41L6 19l1.41-1.41L1.83 12 .41 13.41z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#00017A] mb-4">
+                  Engaged Youth
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  Youth Ballot® turns voting into an engaging classroom
+                  experience with real local issues and easy-to-understand
+                  explanations.
+                </p>
+                <p className="text-sm text-blue-600 font-semibold">
+                  Result: Students become confident, informed voters for life
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                  <svg
+                    className="w-8 h-8 text-purple-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-[#00017A] mb-4">
+                  Better Learning
+                </h3>
+                <p className="text-gray-700 mb-4">
+                  School of Thought™ adapts to each student's learning style
+                  with bite-sized lessons and career exploration that fits any
+                  schedule.
+                </p>
+                <p className="text-sm text-purple-600 font-semibold">
+                  Result: Every student gets personalized attention and support
+                </p>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-[#1873D3] via-[#1237A1] to-[#00017A] text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h3 className="text-4xl lg:text-5xl font-black mb-6">
-              Ready to Work With Us?
-            </h3>
-            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Let's discuss how we can help transform your business with innovative technology solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/contact" className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#FFDE00] to-[#FFB900] hover:from-[#FFB900] hover:to-[#FFDE00] text-[#00017A] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl">
-                <span>Get In Touch</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      {/* Partners Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            className={`transition-all duration-1000 ${isVisible("partners") ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+            data-section="partners"
+          >
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 text-[#1873D3] font-semibold text-sm tracking-wide mb-6">
+                <svg
+                  className="w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16.5c-.8 0-1.54.37-2.01 1.01L12 14v6h4v-6l1.5-2.5L19 14.5V22h1z" />
                 </svg>
-              </Link>
-              <Link to="/portfolio" className="group inline-flex items-center gap-3 border-2 border-white text-white hover:bg-white hover:text-[#1873D3] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                <span>View Portfolio</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+                WORKING TOGETHER
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#00017A] mb-6">
+                Our Partners in Progress
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                We're proud to work alongside dedicated organizations who share
+                our vision of stronger, smarter communities. Together, we're
+                turning great ideas into real solutions that make a difference
+                every day.
+              </p>
+            </div>
+
+            {/* Partner logos grid */}
+            <div className="bg-gray-50 rounded-2xl p-8 mb-8">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+                <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                  <img
+                    src="/src/assets/njit.png"
+                    alt="New Jersey Institute of Technology"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                  <img
+                    src="/src/assets/njii.png"
+                    alt="New Jersey Innovation Institute"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                  <img
+                    src="/src/assets/cityofnewark.png"
+                    alt="City of Newark"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
+                  <img
+                    src="/src/assets/nboe.png"
+                    alt="Newark Board of Education"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+                <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow lg:col-span-1 md:col-span-3 col-span-2 mx-auto">
+                  <img
+                    src="/src/assets/marco.png"
+                    alt="MarCO Health"
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-8 h-8 text-blue-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-[#00017A] mb-3">
+                  City Leadership
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Working directly with Newark's government to implement
+                  solutions that serve residents better.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>City of Newark</li>
+                  <li>Department of Public Works</li>
+                  <li>Newark City Hall</li>
+                  <li>Newark Board of Education</li>
+                </ul>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-8 h-8 text-green-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-[#00017A] mb-3">
+                  Academic Excellence
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Partnering with leading institutions to bring cutting-edge
+                  research to everyday challenges.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>New Jersey Institute of Technology</li>
+                  <li>New Jersey Innovation Institute</li>
+                </ul>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-8 h-8 text-purple-600"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14H5v-2h7v2zm3-4H5v-2h10v2zm0-4H5V7h10v2z" />
+                  </svg>
+                </div>
+                <h3 className="font-bold text-[#00017A] mb-3">
+                  Community Health
+                </h3>
+                <p className="text-gray-600 text-sm mb-4">
+                  Collaborating with health organizations to understand and
+                  improve community wellbeing.
+                </p>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>MarCO Health</li>
+                </ul>
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
-      <style>{`
-        @keyframes gradient-shift {
-          0%, 100% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        
-        @keyframes fade-in-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        @keyframes slide-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(40px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        @keyframes slide-in-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(60px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        @keyframes scale-x {
-          from { transform: scaleX(0); }
-          to { transform: scaleX(1); }
-        }
-        
-        .animate-gradient-shift {
-          animation: gradient-shift 3s ease infinite;
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 1s ease-out;
-        }
-        
-        .animate-slide-up {
-          animation: slide-up 1s ease-out;
-        }
-        
-        .animate-slide-in-up {
-          animation: slide-in-up 0.8s ease-out forwards;
-        }
-        
-        .animate-scale-x {
-          animation: scale-x 1s ease-out 1s forwards;
-        }
-        
-        .bg-300% {
-          background-size: 300% 300%;
-        }
-      `}</style>
+      {/* Team Section */}
+      <TeamSection 
+        isVisible={isVisible("team")} 
+        sectionId="team" 
+      />
+
+      {/* CTA Section */}
+      <section className="py-16 bg-gradient-to-br from-[#1873D3] via-[#1237A1] to-[#00017A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-3xl lg:text-4xl font-bold mb-6">
+            Ready to Transform Your Community?
+          </h3>
+          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+            Let's discuss how we can help solve your community's challenges with
+            innovative AI solutions.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-3 bg-[#FFDE00] hover:bg-[#FFB900] text-[#00017A] px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+            >
+              <span>Get In Touch</span>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                />
+              </svg>
+            </Link>
+            <Link
+              to="/services"
+              className="inline-flex items-center gap-3 border-2 border-white text-white hover:bg-white hover:text-[#1873D3] px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+            >
+              <span>View Our Services</span>
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

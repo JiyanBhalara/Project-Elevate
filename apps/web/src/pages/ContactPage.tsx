@@ -82,7 +82,7 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="relative min-h-screen bg-white overflow-x-hidden">
+<div className="relative min-h-screen bg-white overflow-x-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-[#1873D3]/3 to-transparent rounded-full animate-pulse" style={{ animationDuration: '4s' }}></div>
@@ -91,16 +91,28 @@ const ContactPage: React.FC = () => {
 
       <div className="relative z-10">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-[#1873D3] via-[#1237A1] to-[#00017A] text-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+        <section className="relative text-white py-20 sm:py-24 lg:py-32 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')`
+            }}
+          >
+            {/* Multiple overlay layers for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3]/95 via-[#1237A1]/90 to-[#00017A]/95"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
+          </div>
+
           {/* Hero Background Animation */}
           <div className="absolute inset-0">
             <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[#FFDE00]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '3s' }}></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#FFB900]/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '4s', animationDelay: '1s' }}></div>
           </div>
 
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
             <div className="text-center" data-section="hero">
-              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-white/20 animate-fade-in">
+              <div className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-md rounded-full px-6 py-3 mb-8 border border-white/30 animate-fade-in">
                 <div className="relative">
                   <span className="text-2xl animate-bounce">📞</span>
                   <div className="absolute inset-0 bg-[#FFDE00]/20 rounded-full blur animate-ping"></div>
@@ -222,29 +234,6 @@ const ContactPage: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#1873D3]/10 to-[#FFDE00]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-[#1873D3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-[#00017A] mb-1">Free Consultation</h3>
-                        <p className="text-[#1237A1] text-sm">Initial consultation and project assessment at no cost</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#1873D3]/10 to-[#FFDE00]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <svg className="w-6 h-6 text-[#1873D3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-[#00017A] mb-1">Fast Turnaround</h3>
-                        <p className="text-[#1237A1] text-sm">Detailed project proposals within 48-72 hours</p>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Social Links */}
@@ -486,12 +475,6 @@ const ContactPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
                 <span>Call Us Now</span>
-              </button>
-              <button className="group inline-flex items-center gap-3 border-2 border-white text-white hover:bg-white hover:text-[#1873D3] px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 backdrop-blur-sm">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span>Schedule Meeting</span>
               </button>
             </div>
           </div>
