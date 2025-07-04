@@ -179,7 +179,7 @@ const HomePage: React.FC = () => {
             </div>
           </section>
           
-          {/* Impact Section */}
+          {/* Our Focus Areas Section (Updated Impact Section) */}
           <section id="achievements" className="py-20 lg:py-32 bg-gradient-to-br from-[#1873D3] via-[#1237A1] to-[#00017A] text-white relative overflow-hidden" data-section="achievements">
             {/* Minimal Background Pattern */}
             <div className="absolute inset-0 opacity-5">
@@ -193,19 +193,18 @@ const HomePage: React.FC = () => {
               }`}>
                 <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-md text-white rounded-full px-6 py-3 text-sm font-semibold mb-6 border border-white/20">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
-                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+                    <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
                   </svg>
-                  <span className="tracking-wide">OUR IMPACT</span>
+                  <span className="tracking-wide">OUR FOCUS AREAS</span>
                 </div>
                 <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-8">
-                  Transforming Communities
+                  Driving Innovation in
                   <span className="block bg-gradient-to-r from-[#FFDE00] via-[#FFB900] to-[#FFDE00] text-transparent bg-clip-text animate-text-shimmer bg-300%">
-                    Worldwide
+                    Smart City Development
                   </span>
                 </h2>
-                <p className="text-xl text-white/80 max-w-2xl mx-auto">
-                  Real impact through innovative smart city solutions and government partnerships.
+                <p className="text-xl text-white/80 max-w-3xl mx-auto">
+                  We focus on creating comprehensive solutions that address the core challenges of modern urban environments through strategic partnerships and cutting-edge technology.
                 </p>
               </div>
               
@@ -217,31 +216,33 @@ const HomePage: React.FC = () => {
                         <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
                       </svg>
                     ),
-                    label: "Smart Cities Deployed", 
-                    value: "50+", 
-                    description: "AI-enhanced urban solutions" 
+                    title: "Municipal Technology", 
+                    description: "AI-powered solutions for city management, public services, and citizen engagement platforms",
+                    features: ["Smart Infrastructure", "Digital Services", "Data Analytics"]
                   },
                   { 
                     icon: (
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
                       </svg>
                     ),
-                    label: "Citizens Impacted", 
-                    value: "2M+", 
-                    description: "Lives improved through technology" 
+                    title: "Educational Innovation", 
+                    description: "Technology solutions that enhance learning experiences and civic engagement for students",
+                    features: ["Youth Engagement", "Digital Learning", "Civic Education"]
                   },
                   { 
                     icon: (
                       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                        <path fillRule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
                     ),
-                    label: "Government Partnerships", 
-                    value: "25+", 
-                    description: "Municipal collaborations" 
+                    title: "Public-Private Partnerships", 
+                    description: "Bridging the gap between innovative technology and practical government implementation",
+                    features: ["Strategic Partnerships", "Implementation Support", "Sustainable Solutions"]
                   }
-                ].map((stat, index) => (
+                ].map((area, index) => (
                   <div 
                     key={index} 
                     className={`group transform transition-all duration-700 ${
@@ -251,20 +252,47 @@ const HomePage: React.FC = () => {
                   >
                     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-2xl h-full">
                       <div className="text-[#FFDE00] mb-6 transform group-hover:scale-110 transition-all duration-300 flex justify-center">
-                        {stat.icon}
+                        {area.icon}
                       </div>
-                      <div className="text-5xl font-black text-[#FFDE00] mb-4 group-hover:text-[#FFB900] transition-colors duration-300">
-                        {stat.value}
-                      </div>
-                      <h3 className="text-xl font-bold mb-3">
-                        {stat.label}
+                      <h3 className="text-2xl font-bold mb-4 text-center">
+                        {area.title}
                       </h3>
-                      <p className="text-white/70 text-sm">
-                        {stat.description}
+                      <p className="text-white/80 text-center mb-6 leading-relaxed">
+                        {area.description}
                       </p>
+                      <div className="flex flex-wrap justify-center gap-2">
+                        {area.features.map((feature, idx) => (
+                          <span 
+                            key={idx}
+                            className="bg-[#FFDE00]/20 text-[#FFDE00] px-3 py-1 rounded-full text-sm font-medium border border-[#FFDE00]/30"
+                          >
+                            {feature}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ))}
+              </div>
+
+              {/* Call to Action within Focus Areas */}
+              <div className={`text-center mt-16 transform transition-all duration-700 ${
+                visibleSections.includes('achievements') ? 'animate-fade-in-up' : 'opacity-0'
+              }`} style={{ animationDelay: '0.8s' }}>
+                <div className="max-w-2xl mx-auto">
+                  <p className="text-lg text-white/90 mb-6">
+                    Ready to explore how Project Elevate can transform your community with innovative smart city solutions?
+                  </p>
+                  <Link
+                    to="/services"
+                    className="group inline-flex items-center gap-3 bg-gradient-to-r from-[#FFDE00] to-[#FFB900] hover:from-[#FFB900] hover:to-[#FFDE00] text-[#00017A] px-6 py-3 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                  >
+                    <span>Explore Our Solutions</span>
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </section>
