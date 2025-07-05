@@ -1,35 +1,17 @@
-// File: apps/api/src/main.ts
-
 import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
 import { AppModule } from './app.module';
-import type { Request, Response } from 'express';
+import { ValidationPipe } from '@nestjs/common';
 
-let server: import('express').Express;
-
-async function bootstrap(): Promise<import('express').Express> {
+async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  // 1) All controllers live under /api
-  app.setGlobalPrefix('api');
-
-  // 2) CORS (allow localhost in dev, or your Vercel URL via VITE_API_URL)
-  app.enableCors({ origin: true, credentials: true });
-
-  // 3) Validation, etc.
+  app.enableCors({ origin: /vercel\.app$/ });
   app.useGlobalPipes(
-    new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true })
+    new ValidationPipe({
+      whitelist: true,          // strips unknown properties
+      forbidNonWhitelisted: true,
+      transform: true,          // enables class-transformer
+    }),
   );
-
-  // 4) Initialize but do not listen on a port
-  await app.init();
-  return app.getHttpAdapter().getInstance();
+  await app.listen(4000);
 }
-
-// This default export is what Vercel invokes as a lambda
-export default async function handler(req: Request, res: Response): Promise<void> {
-  if (!server) {
-    server = await bootstrap();
-  }
-  return server(req, res);
-}
+bootstrap();
