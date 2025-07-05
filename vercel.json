@@ -17,18 +17,9 @@
   ],
   "routes": [
     {
-      "src": "/contact",
-      "methods": ["OPTIONS","POST"],
-      "headers": {
-        "Access-Control-Allow-Origin": "https://project-elevate-web.vercel.app",
-        "Access-Control-Allow-Methods": "POST,OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type,Authorization"
-      }
-    },
-    {
       "src": "(.*)",
       "dest": "/apps/api/src/main.ts",
-      "methods": ["GET", "POST"]
+      "methods": ["GET","OPTIONS","POST"]
     }
   ]
 }
