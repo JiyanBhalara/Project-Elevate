@@ -1,14 +1,16 @@
 {
   "version": 2,
   "buildCommand": "npm run build:vercel",
+
   "functions": {
-    "index.handler": {
+    "dist/index.js": {         
       "runtime": "nodejs20.x",
-      "handler": "dist/main.serverless.handler",
-      "memory": 512
+      "memory": 512,
+      "maxDuration": 10
     }
   },
+
   "routes": [
-    { "src": "/(.*)", "dest": "index.handler" }
+    { "src": "/(.*)", "dest": "dist/index.js" }
   ]
 }
