@@ -3,8 +3,8 @@
   "buildCommand": "npm run build:vercel",
 
   "functions": {
-    "dist/index.js": {         
-      "runtime": "nodejs20.x",
+    "dist/index.js": {          
+      "runtime": "nodejs18.x", 
       "memory": 512,
       "maxDuration": 10
     }
