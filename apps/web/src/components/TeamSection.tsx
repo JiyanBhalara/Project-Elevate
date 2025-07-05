@@ -16,37 +16,37 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isVisible, sectionId }) => {
     {
       name: "Fakhair Spence",
       role: "Co-Founder | CEO",
-      image: "/src/assets/team/fakhair.jpeg",
+      image: "/assets/team/fakhair.jpeg",
     },
     {
       name: "Anthony Caruso",
       role: "Co-Founder | CTO",
-      image: "/src/assets/team/anthony.jpeg",
+      image: "/assets/team/anthony.jpeg",
     },
     {
       name: "Azeez",
       role: "Lead Technical Director",
-      image: "/src/assets/team/",
+      image: "/assets/team/",
     },
     {
       name: "Sean",
       role: "Senior Backend Developer",
-      image: "/src/assets/team/sean.jpeg",
+      image: "/assets/team/sean.jpeg",
     },
     {
       name: "Thomas",
       role: "Senior AI Developer",
-      image: "/src/assets/team/thomas.jpeg",
+      image: "/assets/team/thomas.jpeg",
     },
     {
       name: "Jiyan Bhalara",
       role: "Full Stack Developer",
-      image: "/src/assets/team/jiyan.jpeg",
+      image: "/assets/team/jiyan.jpeg",
     },
     {
       name: "Marwa",
       role: "UI/UX Designer",
-      image: "/src/assets/team/",
+      image: "/assets/team/",
     },
   ];
 
