@@ -3,13 +3,14 @@
   "buildCommand": "npm run build:vercel",
 
   "functions": {
-    "dist/index.js": {
+    "api/index.js": {         
+      "runtime": "nodejs18.x",
       "memory": 512,
       "maxDuration": 10
     }
   },
 
   "routes": [
-    { "src": "/(.*)", "dest": "dist/index.js" }
+    { "src": "/(.*)", "dest": "api/index.js" }
   ]
 }
