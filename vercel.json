@@ -16,11 +16,17 @@
     }
   ],
   "routes": [
-    { "src": "^/(.*)",       "dest": "/index.html" },
-    {
-      "src": "(.*)",
-      "dest": "/apps/api/src/main.ts",
-      "methods": ["GET"]
-    }
-  ]
+  {
+    "src": "^/api/(.*)$",
+    "dest": "apps/api/dist/main.js"
+  },
+  {
+    "handle": "filesystem"
+  },
+  {
+    "src": "^/(.*)$",
+    "dest": "/index.html"
+  }
+]
+
 }
