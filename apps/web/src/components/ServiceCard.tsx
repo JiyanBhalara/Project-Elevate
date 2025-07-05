@@ -132,15 +132,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isVisible }) 
                   Featured
                 </div>
               )}
-
-              {/* Category Badges - Multiple categories support */}
-              <div className="absolute top-4 right-4 flex flex-col gap-2">
-                {service.featured && (
-                  <div className="bg-gradient-to-r from-[#FFDE00] to-[#FFB900] text-[#00017A] px-3 py-1 rounded-lg text-xs font-bold shadow-md transform transition-all duration-500 ease-out group-hover:shadow-lg group-hover:scale-105">
-                    Featured
-                  </div>
-                )}
-              </div>
             </div>
           </div>
 
@@ -168,15 +159,15 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service, index, isVisible }) 
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
-              <button
-                onClick={() => window.location.href = `/services/${service.slug}`}
+              <Link
+                to = {`/services/${service.slug}`}
                 className="group/btn inline-flex items-center gap-2 bg-gradient-to-r from-[#1873D3] to-[#1237A1] hover:from-[#1237A1] hover:to-[#00017A] text-white px-6 py-3 rounded-xl font-semibold transition-all duration-500 ease-out transform hover:scale-105 hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
               >
                 <span>Learn More</span>
                 <svg className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform duration-500 ease-out" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
-              </button>
+              </Link>
               <Link
                 target='_blank' 
                 to={service.url}
