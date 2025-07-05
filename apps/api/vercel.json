@@ -3,13 +3,13 @@
   "buildCommand": "npm run build:vercel",
 
   "functions": {
-    "api/index.js": {     
+    "api/index.ts": {          
       "memory": 512,
       "maxDuration": 10
     }
   },
 
   "routes": [
-    { "src": "/(.*)", "dest": "api/index.js" }
+    { "src": "/(.*)", "dest": "api/index.ts" }
   ]
 }
