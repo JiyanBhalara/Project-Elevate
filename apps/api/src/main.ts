@@ -1,14 +1,26 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import { ConfigService } from '@nestjs/config';
+import { AppModule } from './app.module';
+import type { Request, Response } from 'express';
 
 let server: any;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  // Only needed if you ever call external‐domain APIs
-  app.enableCors();
+
+  // pick up your VITE_API_URL from env in prod, or localhost in dev
+  const config = app.get(ConfigService);
+  const frontEndUrl =
+    process.env.NODE_ENV === 'production'
+      ? config.get<string>('VITE_API_URL')
+      : 'http://localhost:3000';
+
+  app.enableCors({
+    origin: frontEndUrl,
+    credentials: true,
+  });
+
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -16,14 +28,12 @@ async function bootstrap() {
       transform: true,
     }),
   );
+
   await app.init();
-  return app.getHttpAdapter().getInstance(); // Express handler
+  return app.getHttpAdapter().getInstance(); // express handler
 }
 
-export default async function handler(
-  req: VercelRequest,
-  res: VercelResponse
-) {
+export default async function handler(req: Request, res: Response) {
   if (!server) {
     server = await bootstrap();
   }
