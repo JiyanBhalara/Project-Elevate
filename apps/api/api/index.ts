@@ -3,7 +3,7 @@ import { Handler } from 'aws-lambda';
 import express from 'express';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
-import { AppModule } from 'src/app.module';
+import { AppModule } from '../src/app.module';
 
 let cached: Handler | undefined;
 
