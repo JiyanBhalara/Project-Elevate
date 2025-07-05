@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    // 1) build NestJS into apps/api/dist
     "build:api": "npm --prefix apps/api install && npm --prefix apps/api run build",
-    // 2) build Vite into apps/web/dist
     "build:web": "npm --prefix apps/web install && npm --prefix apps/web run build",
-    // 3) run both
     "build": "npm run build:api && npm run build:web",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently -k -n WEB,API -c magenta,cyan \"npm:dev --workspace project-elevate\" \"npm:start:dev --workspace apps/api\""
