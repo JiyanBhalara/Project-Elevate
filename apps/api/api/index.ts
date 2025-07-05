@@ -26,11 +26,16 @@ const handler: Handler = async (
   context: Context,
   callback: Callback,
 ) => {
-  // shim minimal HTTP API v2 shape so that vendia/serverless-express
-  // never falls back to “unknown event source”
-  const ev = {
+  // —— SHIM the HTTP API v2 fields —— 
+  // ensure rawPath and rawQueryString exist, 
+  // and give requestContext.http a minimal fallback
+  const ev: any = {
     ...event,
+    // only set version if it wasn’t provided
     version: (event as any).version ?? '2.0',
+    // this is the key – without rawPath, `.replace` will blow up
+    rawPath: (event as any).rawPath ?? event.path ?? '/',
+    rawQueryString: (event as any).rawQueryString ?? '',
     requestContext: {
       ...(event.requestContext ?? {}),
       http: (event.requestContext as any)?.http || {
@@ -44,8 +49,8 @@ const handler: Handler = async (
   };
 
   cachedHandler ??= await bootstrap();
-  return cachedHandler(ev as any, context, callback);
+  return cachedHandler(ev, context, callback);
 };
 
-// **This** is the important line: default‐export your handler function:
+// make sure your default export is the handler function
 export default handler;
