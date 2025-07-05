@@ -17,9 +17,16 @@
   ],
   "routes": [
     {
-      "src": "(.*)",
+      "src": "^/api/(.*)$",
       "dest": "/apps/api/src/main.ts",
-      "methods": ["GET"]
+      "methods": ["GET","POST","PUT","PATCH","DELETE","OPTIONS"]
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/(.*)$",
+      "dest": "/apps/web/dist/index.html"
     }
   ]
 }
