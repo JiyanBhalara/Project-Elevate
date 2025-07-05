@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
                     
                     <div className="absolute inset-2 rounded-full overflow-hidden bg-white shadow-2xl">
                       <img 
-                        src="/src/assets/logo.png" 
+                        src="/assets/logo.png" 
                         alt="Project Elevate Logo" 
                         className="w-full h-full object-contain p-4 transform group-hover:scale-105 transition-all duration-500"
                         onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {

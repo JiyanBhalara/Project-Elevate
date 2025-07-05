@@ -4,7 +4,7 @@
       "name": "Project Elevate – Newark Resident Service Platform",
       "url": "https://newark-resident-app.vercel.app/",
       "slug": "project-elevate-newark-dpw",
-      "image": "/src/assets/dpw.png",
+      "image": "/assets/dpw.png",
       "award": "2nd Place – Best Service Application Platform",
       "category":["Municipality"],
       "summary": "A web application that modernizes how Newark’s Department of Public Works (DPW) collaborates with residents, combines AI-driven communication, smart incident reporting, and real-time crew workflows to keep the city cleaner while cutting costs.",
@@ -59,7 +59,7 @@
       "name": "Youth Ballot – Next-Generation Civic Engagement & Secure Voting",
       "url": "https://youth-ballot.web.app/",
       "slug": "project-elevate-youth-ballot",
-      "image": "/src/assets/youthballot.png",
+      "image": "/assets/youthballot.png",
       "category":["Municipality", "Education"],
       "summary": "A mobile-first platform that teaches civic literacy and delivers secure, paper-free elections for students—now expanding to council and assembly races when users turn 18.",
       "description": [
@@ -113,7 +113,7 @@
       "name": "School of Thought – AI Tools for Learning",
       "url": "https://web.schoolofthought.us/",
       "slug": "school-of-thought-ai-chatbot",
-      "image": "/src/assets/schoolofthought.png",
+      "image": "/assets/schoolofthought.png",
       "category":["Education"],
       "summary": "A conversational AI platform that delivers personalized study assistance to students and curriculum-planning tools to teachers, reimagining classroom engagement.",
       "description": [
@@ -146,7 +146,7 @@
       "name": "AI Camera System",
       "url": "",
       "slug": "ai-camera-system",
-      "image": "/src/assets/dpw-camera-system.jpg",
+      "image": "/assets/dpw-camera-system.jpg",
       "category":["Municipality"],
       "summary": "An edge-based computer-vision network that detects and deters illegal dumping across cities in real time, enabling rapid government response and cleaner streets.",
       "description": [

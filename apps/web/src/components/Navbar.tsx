@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
               <div className="relative w-10 h-10 lg:w-12 lg:h-12">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#1873D3] to-[#1237A1] rounded-xl shadow-lg group-hover:shadow-xl transition-all duration-300 transform group-hover:scale-105"></div>
                 <img 
-                  src="./src/assets/logo2.jpg" 
+                  src="/assets/logo2.jpg" 
                   alt="Project Elevate Logo" 
                   className="relative w-full h-full object-contain rounded-xl z-10"
                   onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {

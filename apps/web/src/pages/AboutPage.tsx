@@ -431,35 +431,35 @@ const AboutPage: React.FC = () => {
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
                 <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
                   <img
-                    src="/src/assets/njit.png"
+                    src="/assets/njit.png"
                     alt="New Jersey Institute of Technology"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
                 <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
                   <img
-                    src="/src/assets/njii.png"
+                    src="/assets/njii.png"
                     alt="New Jersey Innovation Institute"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
                 <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
                   <img
-                    src="/src/assets/cityofnewark.png"
+                    src="/assets/cityofnewark.png"
                     alt="City of Newark"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
                 <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow">
                   <img
-                    src="/src/assets/nboe.png"
+                    src="/assets/nboe.png"
                     alt="Newark Board of Education"
                     className="max-w-full max-h-full object-contain"
                   />
                 </div>
                 <div className="w-40 h-30 bg-white rounded-lg shadow-sm flex items-center justify-center border border-gray-200 p-4 hover:shadow-md transition-shadow lg:col-span-1 md:col-span-3 col-span-2 mx-auto">
                   <img
-                    src="/src/assets/marco.png"
+                    src="/assets/marco.png"
                     alt="MarCO Health"
                     className="max-w-full max-h-full object-contain"
                   />
