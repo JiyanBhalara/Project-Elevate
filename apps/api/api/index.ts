@@ -18,23 +18,21 @@ async function bootstrap(): Promise<Handler> {
   const app = express();
   const nestApp = await NestFactory.create(AppModule, new ExpressAdapter(app));
   await nestApp.init();
-  // you can also pass binaryMimeTypes here if needed
   return serverlessExpress({ app });
 }
 
-export const handler: Handler = async (
+const handler: Handler = async (
   event: APIGatewayProxyEvent,
   context: Context,
   callback: Callback,
 ) => {
-  // ensure we have at least a minimal HTTP API v2 shape
+  // shim minimal HTTP API v2 shape so that vendia/serverless-express
+  // never falls back to “unknown event source”
   const ev = {
     ...event,
     version: (event as any).version ?? '2.0',
     requestContext: {
-      // preserve any real requestContext fields...
       ...(event.requestContext ?? {}),
-      // ...but guarantee there's an http object
       http: (event.requestContext as any)?.http || {
         method: event.httpMethod || 'GET',
         path: event.path || '/',
@@ -48,3 +46,6 @@ export const handler: Handler = async (
   cachedHandler ??= await bootstrap();
   return cachedHandler(ev as any, context, callback);
 };
+
+// **This** is the important line: default‐export your handler function:
+export default handler;
