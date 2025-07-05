@@ -1,11 +1,13 @@
 // apps/api/api/index.js
 
 import serverlessExpress from '@vendia/serverless-express';
-import { Handler } from 'aws-lambda';
+import type { Handler } from 'aws-lambda';
 import express from 'express';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { AppModule } from '../src/app.module';
+
+let cached: Handler;
 
 async function bootstrap(): Promise<Handler> {
   const app = express();
