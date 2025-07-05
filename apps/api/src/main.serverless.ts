@@ -1,4 +1,3 @@
-// apps/api/src/main.serverless.ts
 import serverlessExpress from '@vendia/serverless-express';
 import { Handler } from 'aws-lambda';
 import express from 'express';
