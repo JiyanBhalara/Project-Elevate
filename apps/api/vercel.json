@@ -1,13 +1,15 @@
 {
   "version": 2,
   "buildCommand": "npm run build:vercel",
+
   "functions": {
-    "dist/index.serverless.js": {
+    "dist/index.js": {
       "memory": 512,
       "maxDuration": 10
     }
   },
+
   "routes": [
-    { "src": "/(.*)", "dest": "dist/index.serverless.js" }
+    { "src": "/(.*)", "dest": "dist/index.js" }
   ]
 }
