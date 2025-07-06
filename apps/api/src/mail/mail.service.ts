@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import * as nodemailer from 'nodemailer';
 import { ConfigService } from '@nestjs/config';
 import { ContactDto } from './dto/contact.dto';
-import { config } from 'process';
 
 @Injectable()
 export class MailService {

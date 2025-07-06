@@ -63,9 +63,7 @@ const ContactPage: React.FC = () => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
     });
-
     if (!res.ok) throw new Error('Network');
-
     setSubmitStatus('success');
     setFormData({ name: '', email: '', subject: '', message: '' });
   } catch {

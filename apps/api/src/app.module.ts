@@ -14,10 +14,7 @@ import { join } from 'path';
     ConfigModule.forRoot({
       isGlobal: true,
       // load local .env in dev; in prod (Vercel) it'll skip .env and use injected vars
-      envFilePath:
-        process.env.NODE_ENV === 'production'
-          ? undefined
-          : 'apps/api/.env',
+      envFilePath: join(__dirname, '..', '.env')
     }),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '../..', 'web', 'dist'),
