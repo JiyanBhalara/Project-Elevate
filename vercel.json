@@ -32,7 +32,7 @@
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "https://to-my-frontend"
+          "value": "https://project-elevate-web-1.vercel.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
