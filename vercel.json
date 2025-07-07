@@ -17,13 +17,13 @@
   ],
   "routes": [
     {
+      "src": "/(.*)",
+      "dest": "/apps/web/dist/index.html"
+    },
+    {
       "src": "/backend/(.*)",
       "dest":"/apps/api/src/main.ts",
       "methods": ["GET","OPTIONS","POST"]
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/apps/web/dist/index.html"
     }
   ]
 }
