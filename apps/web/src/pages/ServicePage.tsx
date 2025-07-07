@@ -42,7 +42,8 @@ export default function ServicesPage() {
           slug: project.slug,
           category: project.category || ["Development"]
         }));
-        
+        console.log(data)
+        console.log(transformedServices);
         setServices(transformedServices);
         setFilteredServices(transformedServices);
         
@@ -55,11 +56,11 @@ export default function ServicesPage() {
         
         setLoading(false);
       })
-      .catch((err) => {
-        console.error(err);
-        setError('Failed to load services');
-        setLoading(false);
-      });
+      // .catch((err) => {
+      //   console.error(err);
+      //   setError('Failed to load services');
+      //   setLoading(false);
+      // });
 
     // Intersection Observer for animations
     const observer = new IntersectionObserver(
