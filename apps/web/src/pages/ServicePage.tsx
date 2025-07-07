@@ -56,11 +56,11 @@ export default function ServicesPage() {
         
         setLoading(false);
       })
-      // .catch((err) => {
-      //   console.error(err);
-      //   setError('Failed to load services');
-      //   setLoading(false);
-      // });
+      .catch((err) => {
+        console.error(err);
+        setError('Failed to load services');
+        setLoading(false);
+      });
 
     // Intersection Observer for animations
     const observer = new IntersectionObserver(
