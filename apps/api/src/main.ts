@@ -7,7 +7,7 @@ async function bootstrap() {
 
   const whitelist = [
     process.env.LOCAL_URL, 
-    process.env.VITE_WEB_URL!,
+    process.env.VITE_WEB_URL,
     /\.vercel\.app$/
   ];
 

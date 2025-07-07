@@ -26,7 +26,7 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isVisible, sectionId }) => {
     {
       name: "Azeez",
       role: "Lead Technical Director",
-      image: "/assets/team/",
+      image: "/assets/team/azeez.jpeg",
     },
     {
       name: "Sean",
@@ -39,14 +39,14 @@ const TeamSection: React.FC<TeamSectionProps> = ({ isVisible, sectionId }) => {
       image: "/assets/team/thomas.jpeg",
     },
     {
-      name: "Jiyan Bhalara",
+      name: "Jiyan",
       role: "Full Stack Developer",
       image: "/assets/team/jiyan.jpeg",
     },
     {
       name: "Marwa",
       role: "UI/UX Designer",
-      image: "/assets/team/",
+      image: "/assets/team/marwa.jpeg",
     },
   ];
 
