@@ -11,7 +11,7 @@
       "destination": "/apps/api/src/main.ts"
     },
     {
-      "source": "/(?!backend/|.*\\..*$)(.*)",
+      "source": "(.*)",
       "destination": "/index.html"
     }
   ]
