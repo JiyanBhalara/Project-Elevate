@@ -1,25 +1,31 @@
 {
   "version": 2,
+
   "installCommand": "npm install",
-  "buildCommand":   "npm run build",
-  "github": {
-    "enabled": false
-  },
+  "buildCommand": "npm run build",
+
   "builds": [
     {
-      "src": "/apps/api/src/main.ts",
+      "src": "apps/api/src/main.ts",
       "use": "@vercel/node"
     },
     {
-      "src": "/apps/web/dist/*",
-      "use": "@now/static"
+      "src": "apps/web/dist/**",
+      "use": "@vercel/static"
     }
   ],
+
   "routes": [
     {
-      "src": "(.*)",
-      "dest": "/apps/api/src/main.ts",
-      "methods": ["GET","OPTIONS","POST"]
+      "src": "^/api/(.*)",          
+      "dest": "apps/api/src/main.ts"
+    },
+
+    { "handle": "filesystem" },     
+
+    {
+      "src": "/(.*)",               
+      "dest": "apps/web/dist/index.html"
     }
   ]
 }
