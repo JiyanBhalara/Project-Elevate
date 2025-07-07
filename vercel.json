@@ -17,7 +17,7 @@
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/backend/(.*)",
       "dest":"/apps/api/src/main.ts",
       "methods": ["GET","OPTIONS","POST"]
     },
@@ -28,7 +28,7 @@
   ],
   "headers": [
     {
-      "source": "/api/(.*)",
+      "source": "/backend/(.*)",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
