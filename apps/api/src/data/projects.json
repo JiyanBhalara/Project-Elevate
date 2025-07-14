@@ -144,9 +144,9 @@
     },
     {
       "name": "AI Camera System",
-      "url": "",
+      "url": "https://www.projectelevate.us/services/ai-camera-system",
       "slug": "ai-camera-system",
-      "image": "/assets/dpw-camera-system.jpg",
+      "image": "/assets/dpw-camera-system.JPG",
       "category":["Municipality"],
       "summary": "An edge-based computer-vision network that detects and deters illegal dumping across cities in real time, enabling rapid government response and cleaner streets.",
       "description": [
