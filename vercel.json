@@ -1,23 +1,25 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
-
+  "installCommand": "npm install",
+  "buildCommand":   "npm run build",
+  "github": {
+    "enabled": false
+  },
   "builds": [
     {
-      "src": "apps/web/package.json",
-      "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }     
-    },
-
-    {
-      "src": "apps/api/src/main.ts",
+      "src": "/apps/api/src/main.ts",
       "use": "@vercel/node"
+    },
+    {
+      "src": "/apps/web/dist/*",
+      "use": "@now/static"
     }
   ],
-
   "routes": [
-    { "src": "^/api/(.*)", "dest": "apps/api/src/main.ts" },
-
-    { "src": "^/(.*)", "dest": "/index.html" }
+    {
+      "src": "(.*)",
+      "dest": "/apps/api/src/main.ts",
+      "methods": ["GET","OPTIONS","POST"]
+    }
   ]
 }
