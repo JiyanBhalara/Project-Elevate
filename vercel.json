@@ -19,7 +19,5 @@
     { "src": "^/api/(.*)", "dest": "apps/api/src/main.ts" },
 
     { "src": "^/(.*)", "dest": "/index.html" }
-  ],
-
-  "cleanUrls": true
+  ]
 }
